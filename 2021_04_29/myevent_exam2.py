@@ -1,0 +1,49 @@
+import tkinter
+from tkinter import messagebox
+
+def test(e):
+	a = """
+	char    : {}
+	keycode : {}
+	keysym  : {}
+	keysym_num : {}
+	x       : {}
+	y       : {}
+	x_root  : {}
+	y_root  : {}""".format(e.char,
+	e.keycode,
+	e.keysym,
+	e.keysym_num,
+	e.x,
+	e.y,
+	e.x_root,
+	e.y_root)
+
+	info.set(a)
+
+def mouseclick(e):
+    print("클릭위치", e.x, e.y)
+    messagebox.showinfo(title = "mousexy", detail = "클릭 위치 {} {}".format(e.x, e.y))
+
+mywin = tkinter.Tk()
+info = tkinter.StringVar()
+
+frame = tkinter.Frame(mywin, width = 500, height = 400, padx = 100, bg = "blue")
+frame.grid()
+
+
+button = tkinter.Button(mywin, text = "Test")
+button.grid()
+
+label_title = tkinter.Label(frame, text = "========= test\
+ Event=======", justify = "center")
+label_title.grid()
+
+label = tkinter.Label(frame, textvariable = info, justify = "left")
+label.grid()
+
+mywin.bind("<ButtonPress-1>", mouseclick)
+mywin.bind("<KeyPress>", test)
+mywin.bind("<Motion>", test)
+
+mywin.mainloop()
