@@ -1,5 +1,5 @@
 # 퀵 정렬
-#
+# 
 array = [5,7,9,0,3,4,1,6,2,8]
 # start = 0, end = 9
 def quick_sort(array, start, end):
