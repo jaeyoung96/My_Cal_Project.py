@@ -19,4 +19,3 @@ print("time = ",end_time - start_time)
 # N = 5, 21가지, 11 + (5*2)
 # N = 6, 43가지
 # N = 10? for i in range(10):
-# result
