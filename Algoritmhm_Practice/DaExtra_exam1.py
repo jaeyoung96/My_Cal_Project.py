@@ -1,3 +1,4 @@
+
 import sys
 input = sys.stdin.readline
 INF = int(1e9)  # 무한을 의미하는 값으로 10억을 설정
@@ -23,33 +24,37 @@ for _ in range(m):
 def get_smallest_node():
     min_value = INF
     index = 0   # 가장 최단 거리가 짧은 노드(인덱스)
-    for i in range(1, n + 1):
+    for i in range(1, n + 1):   # 1 ~ 6 반복
         if distance[i] < min_value and not visited[i]:
-            min_value = distance[i]
-            index = i
+            # distance[i] < min_value 이고, visited[i] == True 일때
+            # ex) i = 2 일때 INF보다 작고, not False == True -> i = 3 일때 성립X -> i = 4 일때 성립
+            min_value = distance[i]     # ex) min_value = 2 -> min_value = 1
+            index = i   # ex) index = 2 -> index = 4
     return index
 
 def dijkstra(start):
     # 시작 노드에 대해서 초기화
-    distance[start] = 0
-    visited[start] = True
-    for j in graph[start]:
-        distance[j[0]] = j[1]
+    distance[start] = 0     # distance[1] = 0
+    visited[start] = True   # visited[1] = 0
+    for j in graph[start]:  # graph[1] = [(2,2), (3,5), (4,1)]
+        distance[j[0]] = j[1]   # distance[2] = 2, distance[3] = 5, distance[4] = 1
     # 시작 노트를 제외한 전체 n - 1개의 노드에 대해 반복
-    for i in range(n - 1):
+    for i in range(n - 1):  # 5번 반복
         # 현재 최단 거리가 가장 짧은 노드를 꺼내서, 방문처리
-        now = get_smallest_node()
-        visited[now] = True
+        now = get_smallest_node()   # i에서 출발할때 최단거리 노드 ex) now = 4
+        visited[now] = True     # 최단거리 해당 노드 방문 check
         # 현재 노드와 연결된 다른 노드를 확인
-        for j in graph[now]:
-            cost = distance[now] + j[i]
+        for j in graph[now]:    # ex) graph[4] 확인
+            cost = distance[now] + j[1] # ex) cost = 1 + 3
             # 현재 노드를 거쳐서 다른 노드로 이동하는 거리가 더 짧은 경우
-            if cost < distance[j[0]]:
-                distance[j[0]] = cost
+            if cost < distance[j[0]]:   # ex) 4 < 5(distance[3])
+                distance[j[0]] = cost   # distance[3] = 4
+
+for x in range(n + 1):
+    print(graph[x])
 
 # 다익스트라 알고리즘 수행
 dijkstra(start)
-
 # 모든 노드로 가기 위한 최단 거리를 출력
 for i in range(1, n + 1):
     # 도달할 수 없는 경우, 무한(INFINITY)이라고 출력
@@ -58,3 +63,4 @@ for i in range(1, n + 1):
     # 도달할 수 있는 경우 거리를 출력
     else:
         print(distance[i])
+

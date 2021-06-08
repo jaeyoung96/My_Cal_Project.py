@@ -1,10 +1,13 @@
 import time, random
 import numpy as np
-N, M = 100, 10000 #list(map(int, input().split()))
-money = np.random.randint(1,10000,size=N)
-# for _ in range(N):
-#     money.append(int(input()))
+N, M = list(map(int, input().split())) # 100, 10000
+# money = np.random.randint(1,10000,size=N)
+money = []
+
+for _ in range(N):
+    money.append(int(input()))
 start_time = time.time()
+
 money = sorted(money)
 print(money)
 
