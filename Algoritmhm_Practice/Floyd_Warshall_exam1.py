@@ -7,9 +7,9 @@ m = int(input())
 graph = [[INF] * (n+1) for _ in range(n + 1)]
 
 # 자기자신에서 자기자신으로 가는 비용은 0으로 초기화
-for a in range(1, n + 1):
-    for b in range(1, n + 1):
-        if a == b:
+for a in range(1, n + 1):   # 1행 ~ 5행
+    for b in range(1, n + 1):   # 1열 ~ 5열
+        if a == b:  # (1,1), (2,2), (3,3), (4,4), (5,5)
             graph[a][b] = 0
 
 # 각 간선에 대한 정보를 입력받아, 그 값으로 초기화
