@@ -17,10 +17,11 @@ def binary_search(array, target, start, end):
 n, target = list(map(int, input().split()))
 # 전체 원소 입력받기
 array = list(map(int, input().split()))
-
+array.sort()
+print(array)
 # 이진 탐색 수행 결과 출력
 result = binary_search(array, target, 0, n -1)
 if result == None:
     print("원소가 존재하지 않습니다.")
 else:
-    print(result + 1)
+    print('{0}원소는 array[{1}]에 존재합니다.'.format(target, result))

@@ -2,6 +2,7 @@ import time, random
 import numpy as np
 N, M = list(map(int, input().split())) # 100, 10000
 # money = np.random.randint(1,10000,size=N)
+print(N, M)
 money = []
 
 for _ in range(N):
