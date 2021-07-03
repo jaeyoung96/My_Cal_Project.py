@@ -1,17 +1,19 @@
-import time
-import random
+n = int(input())
+n_list = sorted(map(int, input().split()))
+m = int(input())
+m_list = list(map(int,input().split()))
+
+''' 시간복잡도_측정
 n = 100000
-n_list =[]
+n_list = []
 for _ in range(n):
     n_list.append(random.randint(0, 100))# sorted(map(int, input().split()))
 m = 100000
 m_list = []
 for _ in range(m):
     m_list.append(random.randint(0, 100))# list(map(int,input().split()))
-# print(n_list)
-# print(m_list)
+'''
 
-start_time = time.time()
 def binary_search(array, target, start, end):
     while start <= end:
         mid = (start + end) // 2
@@ -32,6 +34,3 @@ for target in m_list:
         print(0)
     else:
         print(1)
-
-end_time = time.time()
-print('time = ', end_time - start_time)
