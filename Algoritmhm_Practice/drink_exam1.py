@@ -1,6 +1,5 @@
 from collections import deque
 import time
-import numpy as np
 
 N,M = map(int, input().split()) # N : 세로, M : 가로
 # ice_case = [[int(col) for col in input().split()]for row in range(M)]
@@ -12,7 +11,7 @@ print(ice_case)
 
 dx = [0,0,1,-1]
 dy = [1,-1,0,0]
-
+# down, up, right, left
 def bfs(x, y):
     que = deque()
     que.append((x,y))
@@ -27,7 +26,6 @@ def bfs(x, y):
             ny = y + dy[i]
             if 0 <= nx <= N-1 and 0 <= ny <= M-1 and ice_case[nx][ny] == 0:
                 que.append((nx,ny))
-        print(x,y)
 
     return True
 
@@ -44,6 +42,3 @@ print(count)
 
 end_time = time.time()
 print("time : ",end_time - start_time)
-# for col in range(N):
-#     for row in range(M):
-#         pass

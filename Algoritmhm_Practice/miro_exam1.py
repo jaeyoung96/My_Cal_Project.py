@@ -7,7 +7,7 @@ for _ in range(n):
 
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
-
+#
 def bfs(x, y):
     q = deque()
     q.append((x, y))
